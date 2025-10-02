@@ -26,3 +26,20 @@ html, body {
   box-sizing: border-box;
 }
 
+:root {
+  --text-primary: 25 30% 25%;
+  --text-secondary: 25 20% 45%;
+  --text-accent: 15 55% 40%;
+  --text-danger: 0 65% 40%;
+  --text-success: 145 40% 30%;
+  --text-warning: 35 85% 35%;
+}
+
+.dark {
+  --text-primary: 30 40% 95%;
+  --text-secondary: 30 25% 65%;
+  --text-accent: 15 70% 55%;
+  --text-danger: 0 70% 60%;
+  --text-success: 145 50% 45%;
+  --text-warning: 35 85% 55%;
+}

@@ -9,10 +9,8 @@ export const auth = betterAuth({
     provider: "postgresql",
   }),
   
-  // CRITICAL: Add baseURL
   baseURL: process.env.BETTER_AUTH_URL || "http://localhost:3000",
   
-  // Add trusted origins
   trustedOrigins: ["http://localhost:3000"],
   
   emailAndPassword: {
@@ -23,7 +21,6 @@ export const auth = betterAuth({
     google: {
       enabled: true,
       prompt: "select_account",
-      // Remove NEXT_PUBLIC_ prefix - these should be server-only
       clientId: process.env.GOOGLE_CLIENT_ID || "",
       clientSecret: process.env.GOOGLE_CLIENT_SECRET || "",
     },
@@ -32,5 +29,18 @@ export const auth = betterAuth({
       clientId: process.env.GITHUB_CLIENT_ID || "",
       clientSecret: process.env.GITHUB_CLIENT_SECRET || "",
     },
+  },
+  
+  // Add advanced logging
+  advanced: {
+    generateId: () => {
+      return crypto.randomUUID();
+    },
+  },
+  
+  // Add logger to see detailed errors
+  logger: {
+    level: "debug",
+    disabled: false,
   },
 });
